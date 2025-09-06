@@ -1,0 +1,42 @@
+#1 Задание
+N = int(input())
+arr = []
+
+for _ in range(N):
+    num = int(input())
+    arr.append(num)
+
+arr.reverse()
+
+for num in arr:
+    print(num)
+#2 Задание
+def transform_array(arr):
+    if not arr:
+        return arr
+    return [arr[-1]] + arr[:-1]
+
+N = int(input())
+arr = list(map(int, input().split()))
+
+result = transform_array(arr)
+
+print(*result)
+#3 Задание
+m = int(input())
+n = int(input())
+weights = [int(input()) for _ in range(n)]
+
+weights.sort()
+
+left = 0
+right = n - 1
+boats = 0
+
+while left <= right:
+    if left != right and weights[left] + weights[right] <= m:
+        left += 1
+    right -= 1
+    boats += 1
+
+print(boats)
